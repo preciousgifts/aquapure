@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+<!-- Primary Meta Tags -->
+<title>AquaPure — Protect Your Family. Clean Your Water Tank.</title>
+<meta name="title" content="AquaPure — Protect Your Family. Clean Your Water Tank."/>
+<meta name="description" content="Book a certified water tank cleaning service in Lagos. Same-day bookings, WHO-compliant agents, 99.9% bacteria removal. Certified & insured washmen."/>
+<meta name="keywords" content="water tank cleaning Lagos, tank wash, AquaPure, water sanitation Nigeria, certified washmen"/>
+<meta name="author" content="AquaPure Health Services"/>
+<meta name="robots" content="index, follow"/>
+<meta name="theme-color" content="#062a3f"/>
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://aquapure.ng/"/>
+<meta property="og:title" content="AquaPure — Protect Your Family. Clean Your Water Tank."/>
+<meta property="og:description" content="Book a certified water tank cleaning in Lagos. Same-day available. 2,400+ families served."/>
+<meta property="og:image" content="https://aquapure.ng/assets/icons/og-image.png"/>
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="AquaPure — Clean Your Water Tank."/>
+<meta name="twitter:description" content="Certified tank wash service in Lagos. Book in 2 minutes."/>
+
+<!-- PWA / Icons -->
+<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg"/>
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png"/>
+<link rel="manifest" href="manifest.json"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/style.css"/>
+</head>
+<body>
+
+<div class="bg-wrap"><div class="wave"></div><div class="wave"></div><div class="wave"></div></div>
+
+<!-- ══════════════════════════════════════════════════
+     MODAL  (5 steps + receipt)
+══════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="modal">
+<div class="modal-box">
+  <button class="modal-close" onclick="closeModal()">✕</button>
+
+  <!-- PROGRESS BAR -->
+  <div class="progress-wrap" id="prog-wrap">
+    <div class="prog-step active" id="ps-1"><div class="prog-dot"></div>Tank Size</div>
+    <div class="prog-line" id="pl-1"></div>
+    <div class="prog-step" id="ps-2"><div class="prog-dot"></div>Location</div>
+    <div class="prog-line" id="pl-2"></div>
+    <div class="prog-step" id="ps-3"><div class="prog-dot"></div>Schedule</div>
+    <div class="prog-line" id="pl-3"></div>
+    <div class="prog-step" id="ps-4"><div class="prog-dot"></div>Address</div>
+    <div class="prog-line" id="pl-4"></div>
+    <div class="prog-step" id="ps-5"><div class="prog-dot"></div>Payment</div>
+  </div>
+
+  <!-- ══ STEP 1: TANK SIZE ══ -->
+  <div class="step-panel active" id="step-1">
+    <p class="modal-step-label">Step 1 of 5</p>
+    <h2 class="modal-title">What is the size<br>of your tank?</h2>
+    <p class="modal-sub">Select one or more sizes. Mix combinations freely and set quantities per size.</p>
+    <div class="size-grid">
+      <div class="size-card" id="card-small" onclick="toggleSize('small')">
+        <div class="s-check">✓</div>
+        <div class="s-icon"><div class="s-bar" style="height:13px"></div><div class="s-bar" style="height:18px"></div><div class="s-bar" style="height:11px"></div></div>
+        <div class="s-name">Small</div><div class="s-litres">Up to 500 litres</div>
+        <div class="s-price">₦3,500 <em>/ tank</em></div>
+        <div class="qty-row"><span class="qty-label">Qty</span><div class="qty-ctrl"><button class="qty-btn" onclick="chQty(event,'small',-1)">−</button><span class="qty-val" id="qv-small">1</span><button class="qty-btn" onclick="chQty(event,'small',+1)">+</button></div></div>
+      </div>
+      <div class="size-card" id="card-medium" onclick="toggleSize('medium')">
+        <div class="s-check">✓</div>
+        <div class="s-icon"><div class="s-bar" style="height:20px"></div><div class="s-bar" style="height:28px"></div><div class="s-bar" style="height:22px"></div></div>
+        <div class="s-name">Medium</div><div class="s-litres">500 – 1,500 litres</div>
+        <div class="s-price">₦6,500 <em>/ tank</em></div>
+        <div class="qty-row"><span class="qty-label">Qty</span><div class="qty-ctrl"><button class="qty-btn" onclick="chQty(event,'medium',-1)">−</button><span class="qty-val" id="qv-medium">1</span><button class="qty-btn" onclick="chQty(event,'medium',+1)">+</button></div></div>
+      </div>
+      <div class="size-card" id="card-large" onclick="toggleSize('large')">
+        <div class="s-check">✓</div>
+        <div class="s-icon"><div class="s-bar" style="height:28px"></div><div class="s-bar" style="height:36px"></div><div class="s-bar" style="height:30px"></div></div>
+        <div class="s-name">Large</div><div class="s-litres">1,500 litres &amp; above</div>
+        <div class="s-price">₦11,000 <em>/ tank</em></div>
+        <div class="qty-row"><span class="qty-label">Qty</span><div class="qty-ctrl"><button class="qty-btn" onclick="chQty(event,'large',-1)">−</button><span class="qty-val" id="qv-large">1</span><button class="qty-btn" onclick="chQty(event,'large',+1)">+</button></div></div>
+      </div>
+    </div>
+    <div class="order-summary"><div class="s-empty" id="s-empty">No tanks selected yet — pick a size above.</div><div class="s-items" id="s-items"></div></div>
+    <div class="modal-footer"><span class="step-hint" id="hint-1">Select at least one tank to continue</span><button class="btn-next" id="next-1" onclick="goStep(2)">Next: Location <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
+  </div>
+
+  <!-- ══ STEP 2: LOCATION ══ -->
+  <div class="step-panel" id="step-2">
+    <p class="modal-step-label">Step 2 of 5</p>
+    <h2 class="modal-title">Where is your<br>tank located?</h2>
+    <p class="modal-sub">Tank placement affects job complexity and adjusts your final price.</p>
+    <div class="loc-grid">
+      <div class="loc-card" id="loc-rooftop" onclick="selectLoc('rooftop')"><div class="loc-check">✓</div><span class="loc-emoji">🏗️</span><div class="loc-name">On Rooftop</div><div class="loc-desc">Overhead tank at height — requires climbing equipment &amp; safety rigging.</div><div class="loc-badge">+₦1,500 complexity</div></div>
+      <div class="loc-card" id="loc-stand" onclick="selectLoc('stand')"><div class="loc-check">✓</div><span class="loc-emoji">🔩</span><div class="loc-name">On Iron Stand</div><div class="loc-desc">Elevated tank on metal frame — moderate access, standard conditions.</div><div class="loc-badge">+₦500 complexity</div></div>
+      <div class="loc-card" id="loc-ground" onclick="selectLoc('ground')"><div class="loc-check">✓</div><span class="loc-emoji">🌿</span><div class="loc-name">Ground Floor</div><div class="loc-desc">Floor-level or buried tank — easiest access, no surcharge applies.</div><div class="loc-badge">No surcharge</div></div>
+    </div>
+    <div class="price-note" id="price-note"></div>
+    <div class="modal-footer"><button class="btn-back" onclick="goStep(1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>Back</button><button class="btn-next" id="next-2" onclick="goStep(3)">Next: Schedule <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
+  </div>
+
+  <!-- ══ STEP 3: CALENDAR ══ -->
+  <div class="step-panel" id="step-3">
+    <p class="modal-step-label">Step 3 of 5</p>
+    <h2 class="modal-title">Pick your date<br>&amp; time window.</h2>
+    <p class="modal-sub">Select an available date, then choose a preferred time window below.</p>
+    <div class="cal-wrap">
+      <div class="cal-box">
+        <div class="cal-header"><span class="cal-month" id="cal-month-label"></span><div class="cal-nav"><button onclick="prevMonth()">&#8249;</button><button onclick="nextMonth()">&#8250;</button></div></div>
+        <div class="cal-days-head"><span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span></div>
+        <div class="cal-days" id="cal-days"></div>
+      </div>
+      <div class="time-box">
+        <div class="time-title">Preferred Time Window</div>
+        <div class="time-slots">
+          <div class="time-slot" id="ts-morning" onclick="selectTime('morning','7:00 AM – 10:00 AM')"><div class="ts-left"><span class="ts-window">7:00 AM – 10:00 AM</span><span class="ts-tag">Early Morning</span></div><span class="ts-avail">4 slots left</span><div class="ts-radio"></div></div>
+          <div class="time-slot" id="ts-midmorning" onclick="selectTime('midmorning','10:00 AM – 1:00 PM')"><div class="ts-left"><span class="ts-window">10:00 AM – 1:00 PM</span><span class="ts-tag">Mid Morning</span></div><span class="ts-avail">2 slots left</span><div class="ts-radio"></div></div>
+          <div class="time-slot unavail"><div class="ts-left"><span class="ts-window">1:00 PM – 4:00 PM</span><span class="ts-tag">Afternoon</span></div><span class="ts-avail" style="color:rgba(255,80,80,.5)">Fully booked</span><div class="ts-radio"></div></div>
+          <div class="time-slot" id="ts-evening" onclick="selectTime('evening','4:00 PM – 6:00 PM')"><div class="ts-left"><span class="ts-window">4:00 PM – 6:00 PM</span><span class="ts-tag">Late Afternoon</span></div><span class="ts-avail">3 slots left</span><div class="ts-radio"></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="booking-strip" id="booking-strip">
+      <div class="bs-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><strong id="bs-date">—</strong></div>
+      <div class="bs-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><strong id="bs-time">—</strong></div>
+      <div class="bs-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L6 10a6 6 0 1012 0L12 2z"/></svg>Est. <strong id="bs-price">—</strong></div>
+    </div>
+    <div class="modal-footer"><button class="btn-back" onclick="goStep(2)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>Back</button><button class="btn-next" id="next-3" onclick="goStep(4)">Next: Address <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
+  </div>
+
+  <!-- ══ STEP 4: ADDRESS ══ -->
+  <div class="step-panel" id="step-4">
+    <p class="modal-step-label">Step 4 of 5</p>
+    <h2 class="modal-title">Where should we<br>send your washman?</h2>
+    <p class="modal-sub">All fields marked with * are required. Your details are kept private.</p>
+    <div class="addr-grid">
+      <div class="field-group" style="grid-column:1/-1">
+        <label>Street Address *</label>
+        <input type="text" id="f-street" placeholder="e.g. 14 Bode Thomas Street" />
+      </div>
+      <div class="field-group">
+        <label>Area / Neighbourhood *</label>
+        <input type="text" id="f-area" placeholder="e.g. Surulere, Lekki, Ikeja…" />
+      </div>
+      <div class="field-group">
+        <label>Closest Landmark *</label>
+        <input type="text" id="f-landmark" placeholder="e.g. Beside Total Filling Station" />
+      </div>
+      <div class="field-group">
+        <label>Phone Number *</label>
+        <input type="tel" id="f-phone" placeholder="e.g. 08012345678" />
+      </div>
+      <div class="field-group">
+        <label>Alternate Phone <span style="color:rgba(168,237,234,.35);font-size:.7rem;">(optional)</span></label>
+        <input type="tel" id="f-phone2" placeholder="e.g. 09087654321" />
+      </div>
+      <div class="field-group" style="grid-column:1/-1">
+        <label>Additional Notes <span style="color:rgba(168,237,234,.35);font-size:.7rem;">(optional)</span></label>
+        <textarea id="f-notes" placeholder="e.g. Gate colour, access instructions, number of floors…"></textarea>
+      </div>
+    </div>
+    <div class="modal-footer"><button class="btn-back" onclick="goStep(3)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>Back</button><button class="btn-next on" onclick="validateAddress()">Next: Payment <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
+  </div>
+
+  <!-- ══ STEP 5: PAYMENT ══ -->
+  <div class="step-panel" id="step-5">
+    <p class="modal-step-label">Step 5 of 5</p>
+    <h2 class="modal-title">Secure Payment</h2>
+    <p class="modal-sub">Choose your preferred payment method to complete your booking.</p>
+
+    <!-- AMOUNT BOX -->
+    <div class="pay-amount-box">
+      <div>
+        <div class="pay-amount-label">Total Amount Due</div>
+        <div class="pay-amount-val" id="pay-amount-display">₦0</div>
+        <div class="pay-amount-note" id="pay-amount-breakdown"></div>
+      </div>
+      <div style="text-align:right;">
+        <div style="font-size:.78rem;color:rgba(168,237,234,.4);margin-bottom:.3rem;">Booking Ref</div>
+        <div style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--foam);" id="pay-ref">—</div>
+      </div>
+    </div>
+
+    <!-- PAYMENT METHODS -->
+    <div id="pay-select-screen">
+      <div style="font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(168,237,234,.4);margin-bottom:.75rem;">Select Payment Method</div>
+      <div class="pay-methods">
+        <div class="pay-method" id="pm-card" onclick="selectPayMethod('card')">
+          <div class="pay-method-icon">💳</div>
+          <div class="pay-method-name">Debit / Credit Card</div>
+          <div class="pay-method-sub">Visa, Verve, Mastercard</div>
+        </div>
+        <div class="pay-method" id="pm-transfer" onclick="selectPayMethod('transfer')">
+          <div class="pay-method-icon">🏦</div>
+          <div class="pay-method-name">Bank Transfer</div>
+          <div class="pay-method-sub">Instant bank transfer</div>
+        </div>
+        <div class="pay-method" id="pm-ussd" onclick="selectPayMethod('ussd')">
+          <div class="pay-method-icon">📱</div>
+          <div class="pay-method-name">USSD</div>
+          <div class="pay-method-sub">*737#, *901#, *822#</div>
+        </div>
+      </div>
+
+      <!-- PAYSTACK BUTTON -->
+      <div class="paystack-btn-wrap">
+        <button class="paystack-btn" id="pay-btn" onclick="simulatePayment()" disabled>
+          <svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          <div class="paystack-logo">
+            Pay Securely with <span>Paystack</span>
+          </div>
+        </button>
+      </div>
+      <div class="secure-line">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        256-bit SSL encrypted &nbsp;·&nbsp; Powered by Paystack &nbsp;·&nbsp; PCI DSS compliant
+      </div>
+    </div>
+
+    <!-- PROCESSING ANIMATION -->
+    <div class="pay-processing" id="pay-processing">
+      <div class="spinner"></div>
+      <h4>Processing Payment…</h4>
+      <p>Please wait, do not close this window.</p>
+    </div>
+
+    <div class="modal-footer" id="pay-footer"><button class="btn-back" onclick="goStep(4)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>Back</button></div>
+  </div>
+
+  <!-- ══ RECEIPT SCREEN ══ -->
+  <div class="receipt-screen" id="receipt-screen">
+    <div class="receipt-header">
+      <div class="receipt-tick">✅</div>
+      <h3>Booking Confirmed!</h3>
+      <p>Payment received. Your AquaPure washman is scheduled and on standby.</p>
+    </div>
+
+    <div class="receipt-card">
+      <div class="receipt-card-head">
+        <span>Customer ID</span>
+        <span class="customer-id" id="r-customer-id">AQP-000000</span>
+      </div>
+      <div class="receipt-rows" id="receipt-rows"></div>
+    </div>
+
+    <div class="whatsapp-msg">
+      <span class="wa-icon">💬</span>
+      <div class="wa-text">
+        Your washman will arrive on schedule. You'll receive a <strong>secret passcode via WhatsApp</strong> that authorises the washman to enter your premises. <em>Do not share this code with anyone else.</em>
+      </div>
+    </div>
+
+    <div class="receipt-actions">
+      <button class="btn-receipt outline" onclick="printReceipt()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        Print Receipt
+      </button>
+      <button class="btn-receipt primary" onclick="closeModal()">
+        Done &nbsp;✓
+      </button>
+    </div>
+  </div>
+
+</div><!-- /modal-box -->
+</div><!-- /modal -->
+
+<!-- ══════════════════ SCRIPTS ══════════════════ -->
+
+<!-- ══ PAGE ══ -->
+<div class="page">
+  <nav>
+    <div class="logo"><span class="logo-dot"></span>AquaPure</div>
+    <div class="nav-links"><a href="#">Services</a><a href="#">How it Works</a><a href="#">Pricing</a><a href="#">Contact</a></div>
+    <button class="nav-cta" onclick="openModal()">Book Now</button>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-left">
+      <div class="eyebrow"><span></span>Certified Water Tank Specialists</div>
+      <h1>Protect Your <em>Family.</em><br>Clean Your Water Tank.</h1>
+      <p class="sub">Contaminated tanks are an invisible threat. Our certified washmen sanitise, disinfect, and restore your tank — so every drop is safe.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="openModal()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="width:18px;height:18px;"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+          Book a Tank Wash
+        </button>
+        <p class="hero-note">Takes <strong>2 minutes</strong> to book</p>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="tank-visual">
+        <div class="tank-ring"></div><div class="tank-ring"></div><div class="tank-ring"></div>
+        <div class="tank-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L6 10a6 6 0 1 0 12 0L12 2z"/><path d="M9 14.5c.5 1 1.5 1.5 3 1.5s2.5-.5 3-1.5" opacity="0.5"/></svg></div>
+        <div class="stat-chip chip-1"><strong>99.9%</strong><span>Bacteria removed</span></div>
+        <div class="stat-chip chip-2"><strong>2 hrs</strong><span>Avg. service time</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust-bar">
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg><p>WHO-compliant cleaning agents</p></div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><p>Same-day bookings available</p></div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg><p>2,400+ families served</p></div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><p>Certified &amp; insured washmen</p></div>
+  </div>
+
+  <section class="features">
+    <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1018 0 9 9 0 00-18 0z"/><path d="M12 8v4l3 3"/></svg></div><h3>Rapid Response</h3><p>Emergency cleans completed within hours of booking. Our dispatch network covers your area with trained washmen on standby.</p></div>
+    <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg></div><h3>Full Inspection Report</h3><p>Every clean includes a detailed photo report — sediment level, biofilm presence, and post-sanitation clarity score delivered to your inbox.</p></div>
+    <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L6 10a6 6 0 1012 0L12 2z"/></svg></div><h3>Pure Water Guarantee</h3><p>Hospital-grade chlorination and UV rinse protocols. If your water tests unsafe within 30 days, we reclean at no charge.</p></div>
+  </section>
+
+  <div class="footer-cta">
+    <h2>Your family deserves clean water.</h2>
+    <p>Join thousands of households who've made AquaPure part of their health routine.</p>
+    <button class="btn-primary" onclick="openModal()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="width:18px;height:18px;"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+      Book a Tank Wash
+    </button>
+  </div>
+
+  <footer>
+    <span>© 2026 AquaPure Health Services</span>
+    <span>Lagos, Nigeria &nbsp;·&nbsp; info@aquapure.ng &nbsp;·&nbsp; 0800-AQUA-PURE</span>
+  </footer>
+</div>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
